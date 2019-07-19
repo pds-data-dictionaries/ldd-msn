@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.sch"
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD 
     xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:msn="http://pds.nasa.gov/pds4/mission/msn/v1" 
+    xmlns:msn="http://pds.nasa.gov/pds4/msn/v1" 
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
-    https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.xsd">
+    https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd">
     <name>Mission Commons</name>
-    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <ldd_version_id>1.1.0.0</ldd_version_id>
     <full_name>Cristina De Cesare</full_name>
     <steward_id>img</steward_id>
     <namespace_id>msn</namespace_id>
-    <last_modification_date_time>2018-05-21T11:02:00</last_modification_date_time>
+    <comment>
+      ## CHANGE LOG ##
+      1.0.0.0
+      - Initial version
+      
+      1.1.0.0
+      - Upgraded to v1B00 of the IM.
+      - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+      - Renamed Orbital_Mission_Information to Orbital_Mission, Surface_Mission_Information to Surface_Mission,
+    </comment>
+    <last_modification_date_time>2019-05-02T12:00:00</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -28,43 +38,8 @@
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The mission_phase_name identifies a time period within the mission.</definition>
     <DD_Value_Domain>
-      <enumeration_flag>true</enumeration_flag>
+      <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Preserved</value_data_type>
-      <!-- Keep enumerated values in alphabetical order to avoid duplicates. -->
-      <DD_Permissible_Value>
-        <value>ATLO</value>
-        <value_meaning>The ATLO mission phase (Assembly, Test, and Launch Operations) is the 
-          time of spacecraft and instrument assembly and test. During this phase data products 
-          are generated using flight hardware. They are usually not part of the final PDS 
-          archive but may be used for testing and peer review.
-        </value_meaning>
-      </DD_Permissible_Value>
-      <DD_Permissible_Value>
-        <value>CRUISE</value>
-        <value_meaning>The cruise mission phase is from the time of escape from Earth's orbit
-          through the time of entry into Mars' orbit. Some data products may be generated
-          during this time, including instrument checkout data.</value_meaning>
-      </DD_Permissible_Value>
-      <DD_Permissible_Value>
-        <value>DEVELOPMENT</value>
-        <value_meaning>The development mission phase refers to the period of data processing 
-          software development and testing, before instruments are integrated with the spacecraft.
-          Data products generated during this phase are usually not part of the final PDS archive
-          but may be used for testing and peer review.</value_meaning>
-      </DD_Permissible_Value>
-      <DD_Permissible_Value>
-        <value>SURFACE MISSION</value>
-        <value_meaning>The surface mission phase is the time from arrival at Mars through the
-          end of surface operations, including the primary mission and any extended missions 
-          that may take place.</value_meaning>
-      </DD_Permissible_Value>
-      <DD_Permissible_Value>
-        <value>TEST</value>
-        <value_meaning>The test mission phase is not a time period but a placeholder for the 
-          mission_phase_name value, used for data products generating during all project tests
-          such as ORTs, SVTs and thread tests. Data products generated in this way are usually 
-          not part of the final PDS archive but may be used for testing and peer review.</value_meaning>
-      </DD_Permissible_Value>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>
@@ -113,7 +88,7 @@
   </DD_Attribute>
   <!-- End attribute definitions for the Mission_Information class -->
   
-  <!-- Start attribute definitions for Orbital_Mission_Information class -->
+  <!-- Start attribute definitions for Orbital_Mission class -->
   <DD_Attribute>
     <name>start_orbit_number</name>
     <version_id>1.0</version_id>
@@ -147,9 +122,9 @@
     </DD_Value_Domain>
   </DD_Attribute>
   
-  <!-- End attribute definitions for Orbital_Mission_Information class -->
+  <!-- End attribute definitions for Orbital_Mission class -->
   
-  <!-- Start attribute definitions for Surface_Mission_Information class -->
+  <!-- Start attribute definitions for Surface_Mission class -->
   <DD_Attribute>
     <name>spacecraft_clock_start</name>
     <version_id>1.0</version_id>
@@ -383,7 +358,7 @@
       <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
-  <!-- End attribute definitions for Surface_Mission_Information class -->
+  <!-- End attribute definitions for Surface_Mission class -->
   
   
   
@@ -446,13 +421,13 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
-      <identifier_reference>Orbital_Mission_Information</identifier_reference>
+      <identifier_reference>Orbital_Mission</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
-      <identifier_reference>Surface_Mission_Information</identifier_reference>
+      <identifier_reference>Surface_Mission</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -462,12 +437,12 @@
   
   
   <DD_Class>
-    <name>Orbital_Mission_Information</name>
+    <name>Orbital_Mission</name>
     <version_id>1.0</version_id>
-    <local_identifier>Orbital_Mission_Information</local_identifier>
+    <local_identifier>Orbital_Mission</local_identifier>
     <submitter_name>Cristina De Cesare</submitter_name>
     <!-- TODO improve definition -->
-    <definition>The Orbital_Mission_Information class provides information about an orbital mission.</definition>
+    <definition>The Orbital_Mission class provides information about an orbital mission.</definition>
     <abstract_flag>false</abstract_flag>
     <DD_Association>
       <identifier_reference>start_orbit_number</identifier_reference>
@@ -484,12 +459,12 @@
   </DD_Class>
   
   <DD_Class>
-    <name>Surface_Mission_Information</name>
+    <name>Surface_Mission</name>
     <version_id>1.0</version_id>
-    <local_identifier>Surface_Mission_Information</local_identifier>
+    <local_identifier>Surface_Mission</local_identifier>
     <submitter_name>Cristina De Cesare</submitter_name>
     <!-- TODO improve definition -->
-    <definition>The Surface_Mission_Information class provides information about a surface mission.</definition>
+    <definition>The Surface_Mission class provides information about a surface mission.</definition>
     <abstract_flag>false</abstract_flag>
     <DD_Association>
       <identifier_reference>start_sol_number</identifier_reference>
@@ -565,6 +540,9 @@
   
   <!-- Begin rule definitions -->
   
+  <!-- TODO make this specific to InSight? 
+    Is there some way to have this rule only trigger when some attribute from another namespace is "InSight"? -->
+  <!--
   <DD_Rule>
     <local_identifier>product_type_name_value_check</local_identifier>
     <rule_context>//msn:Mission_Information</rule_context>
@@ -581,7 +559,8 @@
       <rule_message>MSN:error:product_type_name_value_check: The attribute msn:product_type_name must be equal to one of the following values: .</rule_message>
     </DD_Rule_Statement>
   </DD_Rule>
+  -->
   
   <!-- End rule defintions -->
-    
+  
 </Ingest_LDD>

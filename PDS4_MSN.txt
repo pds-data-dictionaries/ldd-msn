@@ -1,23 +1,30 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        0.2.1.5
-   Time                   Thu Nov 01 16:35:51 PDT 2018
-   Core Schemas           [PDS4_PDS_1A10.xsd]
-   Core Schematrons       [PDS4_PDS_1A10.sch]
-   Common Model Version   1.10.1.0
-   Object Model           [UpperModel.pont]
-   Data Dictionary        [dd11179.pins]
-   Configuration File     [MDPTNConfigClassDisp.xml]
-   Glossary               [Glossary.pins]
-   Document Spec          [DMDocument.pins]
+   LDDTool Version        0.2.2.3
+   LDD Version Id:        1.1.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  true
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        TBD_urnPrefix
+   Time                   Thu May 02 18:33:33 PDT 2019
+   Common Schema          [PDS4_PDS_1B00.xsd]
+   Common Schematron      [PDS4_PDS_1B00.sch]
+   IM Version Id:         1.11.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.17
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
 
 Parameters:
-   Input File             [PDS4_MSN_IngestLDD_1A10.xml]
+   Input File             [PDS4_MSN_IngestLDD_1B00.xml]
    PDS Processing         true
    LDD Processing         true
-   Discipline LDD         false
-   Mission LDD            true
+   Discipline LDD         true
+   Mission LDD            false
    Write Attr Elements    false
    Merge with Master      false
 
@@ -57,49 +64,52 @@ Detailed validation messages
 
 Parsed Input - Header:
    LDD Name               Mission Commons
-   LDD Version            1.0.0.0
+   LDD Version            1.1.0.0
    Full Name              Cristina De Cesare
    Steward                img
    Namespace Id           msn
-   Comment                Definition taken from PDS3 dictionary; may need updating. -- EDR
-   Last Modification Time 2018-05-21T11:02:00
+   Comment                
+      ## CHANGE LOG ##
+      1.0.0.0
+      - Initial version
+      
+      1.1.0.0
+      - Upgraded to v1B00 of the IM.
+      - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+      - Renamed Orbital_Mission_Information to Orbital_Mission, Surface_Mission_Information to Surface_Mission,
+    
+   Last Modification Time 2019-05-02T12:00:00
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
 
    name                   mission_phase_name
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Preserved
    description            The mission_phase_name identifies a time period within the mission.
    nillable               true
-   permissible value - value meaning
-      ATLO - The ATLO mission phase (Assembly, Test, and Launch Operations) is the time of spacecraft and instrument assembly and test. During this phase data products are generated using flight hardware. They are usually not part of the final PDS archive but may be used for testing and peer review. 
-      CRUISE - The cruise mission phase is from the time of escape from Earth's orbit through the time of entry into Mars' orbit. Some data products may be generated during this time, including instrument checkout data.
-      DEVELOPMENT - The development mission phase refers to the period of data processing software development and testing, before instruments are integrated with the spacecraft. Data products generated during this phase are usually not part of the final PDS archive but may be used for testing and peer review.
-      SURFACE MISSION - The surface mission phase is the time from arrival at Mars through the end of surface operations, including the primary mission and any extended missions that may take place.
-      TEST - The test mission phase is not a time period but a placeholder for the mission_phase_name value, used for data products generating during all project tests such as ORTs, SVTs and thread tests. Data products generated in this way are usually not part of the final PDS archive but may be used for testing and peer review.
 
    name                   mission_phase_identifier
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            The mission_phase_identifier attribute provides an identifier for a mission phase.
    nillable               true
 
    name                   release_number
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            Release_number is the number of a scheduled release of data from the provider to PDS. The first data release is typically Release 1. The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
    nillable               true
    minimum value          1
 
    name                   product_type_name
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            The product_type_name identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. 
    nillable               true
 
    name                   start_orbit_number
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            The start_orbit_number attribute provides the first in a series of numbers that represent a set of orbital revolutions of one body around another.
    nillable               true
@@ -107,7 +117,7 @@ Parsed Input - Attributes:
    maximum characters     255
 
    name                   stop_orbit_number
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            The stop_orbit_number attribute provides the last in a series of numbers that represent s set of orbital revolutions of one body around another.
    nillable               true
@@ -115,7 +125,7 @@ Parsed Input - Attributes:
    maximum characters     255
 
    name                   spacecraft_clock_start
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            The spacecraft_clock_start is the value of the spacecraft clock at the beginning of the observation.
    nillable               true
@@ -123,7 +133,7 @@ Parsed Input - Attributes:
    maximum characters     255
 
    name                   spacecraft_clock_stop
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            The spacecraft_clock_stop is the value of the spacecraft clock at the end of the observation. spacecraft_clock_stop should only be used if there's also a spacecraft_clock_start value.
    nillable               true
@@ -131,54 +141,54 @@ Parsed Input - Attributes:
    maximum characters     255
 
    name                   spacecraft_clock_partition
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock attribute.
 
    name                   start_sol_number
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0.
    nillable               true
    minimum value          0
 
    name                   stop_sol_number
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The stop_sol_number is the number of the Mars day on which an observation ended. Landing day is Sol 0. The stop_sol_number should only be used if there's also a start_sol_number.
    nillable               true
    minimum value          0
 
    name                   start_local_mean_solar_time
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            start_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary.
    minimum characters     8
    maximum characters     255
 
    name                   stop_local_mean_solar_time
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            stop_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary.
    minimum characters     8
    maximum characters     255
 
    name                   start_local_true_solar_time
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            start_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary.
    minimum characters     8
    maximum characters     255
 
    name                   stop_local_true_solar_time
-   version                1.10
+   version                1.11
    value data type        ASCII_Short_String_Collapsed
    description            stop_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary.
    minimum characters     8
    maximum characters     255
 
    name                   solar_longitude
-   version                1.10
+   version                1.11
    value data type        ASCII_Real
    description            solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary.
    minimum value          0
@@ -186,22 +196,22 @@ Parsed Input - Attributes:
    unit of measure type   Units_of_Angle
 
    name                   start_local_mean_solar_time_sol
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The start_local_mean_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar time (LMST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative.
 
    name                   stop_local_mean_solar_time_sol
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The stop_local_mean_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar time (LMST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_mean_solar_time_sol should only be used if there's also a start_local_mean_solar_time_sol.
 
    name                   start_local_true_solar_time_sol
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative.
 
    name                   stop_local_true_solar_time_sol
-   version                1.10
+   version                1.11
    value data type        ASCII_Integer
    description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_true_solar_time_sol should only be used if there is also a start_local_true_solar_time_sol.
 
@@ -250,18 +260,18 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      Orbital_Mission_Information
+      local identifier      Orbital_Mission
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
 
-      local identifier      Surface_Mission_Information
+      local identifier      Surface_Mission
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
 
-   name                   Orbital_Mission_Information
-   description            The Orbital_Mission_Information class provides information about an orbital mission.
+   name                   Orbital_Mission
+   description            The Orbital_Mission class provides information about an orbital mission.
    is abstract            false
    is choice              false
    subclass of            USER
@@ -278,8 +288,8 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        attribute_of
 
-   name                   Surface_Mission_Information
-   description            The Surface_Mission_Information class provides information about a surface mission.
+   name                   Surface_Mission
+   description            The Surface_Mission class provides information about a surface mission.
    is abstract            false
    is choice              false
    subclass of            USER

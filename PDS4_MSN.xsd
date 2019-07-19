@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.10.1.0 - Tue Jul 31 14:50:09 PDT 2018 -->
-  <!-- Generated from the PDS4 Information Model Version 1.10.1.0 - System Build 8b -->
+  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.1.0.0 - Thu May 02 18:33:33 PDT 2019 -->
+  <!-- Generated from the PDS4 Information Model Version 1.11.0.0 - System Build 9a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.10.1.0 - pds: - Common Dictionary - N/A                                 -->
-  <!-- 1.10.1.0 - msn: - Mission Commons - PDS4_MSN_IngestLDD_1A10.xml           -->
+  <!-- 1.11.0.0 - pds: - Common Dictionary - N/A                                 -->
+  <!-- 1.1.0.0 - msn: - Mission Commons - PDS4_MSN_IngestLDD_1B00.xml            -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://pds.nasa.gov/pds4/mission/msn/v1"
-    xmlns:msn="http://pds.nasa.gov/pds4/mission/msn/v1"
+    targetNamespace="http://pds.nasa.gov/pds4/msn/v1"
+    xmlns:msn="http://pds.nasa.gov/pds4/msn/v1"
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.10.1.0">
+    version="1.1.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A10.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
-Definition taken from PDS3 dictionary; may need updating. -- EDR
+
+      ## CHANGE LOG ##
+      1.0.0.0
+      - Initial version
+      
+      1.1.0.0
+      - Upgraded to v1B00 of the IM.
+      - Re-classified this dictionary as a Discipline Dictionary, instead of Mission Dictionary.
+      - Renamed Orbital_Mission_Information to Orbital_Mission, Surface_Mission_Information to Surface_Mission,
+    
     </xs:documentation>
   </xs:annotation>
  
@@ -38,19 +47,18 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
       <xs:element name="spacecraft_clock_start" nillable="true" type="msn:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_stop" nillable="true" type="msn:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_partition" type="msn:spacecraft_clock_partition" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="Orbital_Mission_Information" type="msn:Orbital_Mission_Information" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="Surface_Mission_Information" type="msn:Surface_Mission_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Orbital_Mission" type="msn:Orbital_Mission" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Surface_Mission" type="msn:Surface_Mission" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="msn:mission_phase_name = ('ATLO', 'CRUISE', 'DEVELOPMENT', 'SURFACE MISSION', 'TEST')"/> -->
     <!-- <xs:assert test=")"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
-  <xs:complexType name="Orbital_Mission_Information">
+  <xs:complexType name="Orbital_Mission">
     <xs:annotation>
-      <xs:documentation>The Orbital_Mission_Information class provides
-        information about an orbital mission.</xs:documentation>
+      <xs:documentation>The Orbital_Mission class provides information
+        about an orbital mission.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="start_orbit_number" nillable="true" type="msn:start_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -58,10 +66,10 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Surface_Mission_Information">
+  <xs:complexType name="Surface_Mission">
     <xs:annotation>
-      <xs:documentation>The Surface_Mission_Information class provides
-        information about a surface mission.</xs:documentation>
+      <xs:documentation>The Surface_Mission class provides information
+        about a surface mission.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="start_sol_number" nillable="true" type="msn:start_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -141,7 +149,6 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
 
   <xs:simpleType name="solar_longitude_WO_Units">
     <xs:restriction base="pds:ASCII_Real">
-    	<xs:pattern value='[-+]?[0-9]+(\.?[0-9]+)?([eE][-+]?[0-9]+)?'/>
      <xs:minInclusive value="0"/>
      <xs:maxInclusive value="360"/>
 	   </xs:restriction>
@@ -397,8 +404,8 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
   {
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
-      "Version": "1.10.1.0" ,
-      "Date": "Tue Jul 31 14:50:09 PDT 2018" ,
+      "Version": "1.11.0.0" ,
+      "Date": "Thu May 02 18:33:33 PDT 2019" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "PropertyMapDictionary": [
       ]
