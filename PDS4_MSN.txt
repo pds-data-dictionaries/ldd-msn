@@ -1,0 +1,239 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        0.2.1.3
+   Time                   Tue Jun 12 19:28:12 PDT 2018
+   Core Schemas           [PDS4_PDS_1900.xsd]
+   Core Schematrons       [PDS4_PDS_1900.sch]
+   Common Model Version   1.9.0.0
+   Object Model           [UpperModel.pont]
+   Data Dictionary        [dd11179.pins]
+   Configuration File     [MDPTNConfigClassDisp.xml]
+   Glossary               [Glossary.pins]
+   Document Spec          [DMDocument.pins]
+
+Parameters:
+   Input File             [PDS4_MSN_IngestLDD_1900.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Class Elements   true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                3
+   Attributes             12
+   Associations           15
+   Error messages         4
+   Warning messages       0
+   Information messages   7
+
+Detailed validation messages
+   ERROR    Class:0001_NASA_PDS_1.msn.Observation_Conditions  Association:Orbital_Observation_Conditions  Class:Orbital_Observation_Conditions - Missing Component Class
+   ERROR    Association: Orbital_Observation_Conditions - Missing Component - Reference Type: component_of
+   ERROR    Class:0001_NASA_PDS_1.msn.Surface_Observation_Conditions  Association:pds:Time_Coordinates  Class:pds:Time_Coordinates - Missing Component Class
+   ERROR    Association: pds:Time_Coordinates - Missing Component - Reference Type: component_of
+   INFO     Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spacecraft_clock_stop> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <start_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <stop_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+
+Parsed Input - Header:
+   LDD Name               Mission Commons
+   LDD Version            1.0.0.0
+   Full Name              Cristina De Cesare
+   Steward                img
+   Namespace Id           msn
+   Comment                Definition taken from PDS3 dictionary; may need updating. -- EDR
+   Last Modification Time 2018-05-21T11:02:00
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   mission_phase_name
+   version                1.5
+   value data type        ASCII_Short_String_Preserved
+   description            The mission_phase_name identifies a time period within the mission.
+   nillable               true
+   permissible value - value meaning
+      ATLO - The ATLO mission phase (Assembly, Test, and Launch Operations) is the time of spacecraft and instrument assembly and test. During this phase data products are generated using flight hardware. They are usually not part of the final PDS archive but may be used for testing and peer review. 
+      CRUISE - The cruise mission phase is from the time of escape from Earth's orbit through the time of entry into Mars' orbit. Some data products may be generated during this time, including instrument checkout data.
+      DEVELOPMENT - The development mission phase refers to the period of data processing software development and testing, before instruments are integrated with the spacecraft. Data products generated during this phase are usually not part of the final PDS archive but may be used for testing and peer review.
+      SURFACE MISSION - The surface mission phase is the time from arrival at Mars through the end of surface operations, including the primary mission and any extended missions that may take place.
+      TEST - The test mission phase is not a time period but a placeholder for the mission_phase_name value, used for data products generating during all project tests such as ORTs, SVTs and thread tests. Data products generated in this way are usually not part of the final PDS archive but may be used for testing and peer review.
+
+   name                   mission_phase_identifier
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The mission_phase_identifier attribute provides an identifier for a mission phase.
+   nillable               true
+
+   name                   release_number
+   version                1.5
+   value data type        ASCII_Integer
+   description            Release_number is the number of a scheduled release of data from the provider to PDS. The first data release is typically Release 1. The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
+   nillable               true
+   minimum value          1
+
+   name                   spacecraft_clock_start
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start is the value of the spacecraft clock at the beginning of the observation.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   spacecraft_clock_stop
+   version                1.5
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop is the value of the spacecraft clock at the end of the observation. spacecraft_clock_stop should only be used if there's also a spacecraft_clock_start value.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   spacecraft_clock_partition
+   version                1.5
+   value data type        ASCII_Integer
+   description            The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock attribute.
+
+   name                   start_sol_number
+   version                1.5
+   value data type        ASCII_Integer
+   description            The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0.
+   nillable               true
+   minimum value          0
+
+   name                   stop_sol_number
+   version                1.5
+   value data type        ASCII_Integer
+   description            The stop_sol_number is the number of the Mars day on which an observation ended. Landing day is Sol 0. The stop_sol_number should only be used if there's also a start_sol_number.
+   nillable               true
+   minimum value          0
+
+   name                   start_local_mean_solar_time_sol
+   version                1.5
+   value data type        ASCII_Integer
+   description            The start_local_mean_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar time (LMST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative.
+
+   name                   stop_local_mean_solar_time_sol
+   version                1.5
+   value data type        ASCII_Integer
+   description            The stop_local_mean_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local mean solar time (LMST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_mean_solar_time_sol should only be used if there's also a start_local_mean_solar_time_sol.
+
+   name                   start_local_true_solar_time_sol
+   version                1.5
+   value data type        ASCII_Integer
+   description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative.
+
+   name                   stop_local_true_solar_time_sol
+   version                1.5
+   value data type        ASCII_Integer
+   description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_true_solar_time_sol should only be used if there is also a start_local_true_solar_time_sol.
+
+Parsed Input - Classes:
+
+   name                   Mission_Information
+   description            The Mission_Information class provides information about a mission.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mission_phase_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      release_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observation_Conditions
+   description            The Observation_Conditions class defines the conditions under which the observation was acquired. Items in this class apply to the entire observation. Items that apply to the start or stop of an observation appear in Observation_Start_Conditions or Observation_Stop_Conditions. Note that some items may appear here while other items are specific to start and stop.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      spacecraft_clock_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spacecraft_clock_stop
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      spacecraft_clock_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      Surface_Observation_Conditions
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Orbital_Observation_Conditions
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Surface_Observation_Conditions
+   description            The Surface_Observation_Conditions class 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      start_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      stop_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      pds:Time_Coordinates
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      start_local_mean_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      stop_local_mean_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      start_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      stop_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report

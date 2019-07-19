@@ -1,37 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.7.0.0 - Fri Oct 07 11:46:36 PDT 2016 -->
-  <!-- Generated from the PDS4 Information Model Version 1.7.0.0 - System Build 7a -->
+  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.9.0.0 - Tue Jun 12 19:28:12 PDT 2018 -->
+  <!-- Generated from the PDS4 Information Model Version 1.9.0.0 - System Build 8a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.9.0.0 - pds: - Common Dictionary - N/A                                  -->
+  <!-- 1.9.0.0 - msn: - Mission Commons - PDS4_MSN_IngestLDD_1900.xml            -->
+  <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://pds.nasa.gov/pds4/msn/v1"
-    xmlns:msn="http://pds.nasa.gov/pds4/msn/v1"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/msn/v1"
+    xmlns:msn="http://pds.nasa.gov/pds4/mission/msn/v1"
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.7.0.0">
+    version="1.9.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1700.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.xsd"/>
  
   <xs:annotation>
-    <xs:documentation>This XML schema file has been generated from the
-      PDS4 Information Model.</xs:documentation>
+    <xs:documentation>
+Definition taken from PDS3 dictionary; may need updating. -- EDR
+    </xs:documentation>
   </xs:annotation>
  
   <xs:element name="Mission_Information" type="msn:Mission_Information"> </xs:element>
+  <xs:element name="Observation_Conditions" type="msn:Observation_Conditions"> </xs:element>
+  <xs:element name="Surface_Observation_Conditions" type="msn:Surface_Observation_Conditions"> </xs:element>
 
   <xs:complexType name="Mission_Information">
     <xs:annotation>
-      <xs:documentation>The Mission Information class provides a set of
-        optional attributes that have their value sets defined by the
-        mission.</xs:documentation>
+      <xs:documentation>The Mission_Information class provides
+        information about a mission.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="mission_phase_name" type="msn:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="mission_phase_identifier" type="msn:mission_phase_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="start_orbit_number" type="msn:start_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="stop_orbit_number" type="msn:stop_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="spacecraft_clock_start_count" type="msn:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="spacecraft_clock_stop_count" type="msn:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" nillable="true" type="msn:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_identifier" nillable="true" type="msn:mission_phase_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="release_number" nillable="true" type="msn:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="msn:mission_phase_name = ('ATLO', 'CRUISE', 'DEVELOPMENT', 'SURFACE MISSION', 'TEST')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Conditions">
+    <xs:annotation>
+      <xs:documentation>The Observation_Conditions class defines the
+        conditions under which the observation was acquired. Items in
+        this class apply to the entire observation. Items that apply to
+        the start or stop of an observation appear in
+        Observation_Start_Conditions or Observation_Stop_Conditions.
+        Note that some items may appear here while other items are
+        specific to start and stop.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="spacecraft_clock_start" nillable="true" type="msn:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop" nillable="true" type="msn:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_partition" type="msn:spacecraft_clock_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Surface_Observation_Conditions" type="msn:Surface_Observation_Conditions" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Surface_Observation_Conditions">
+    <xs:annotation>
+      <xs:documentation>The Surface_Observation_Conditions class
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="start_sol_number" nillable="true" type="msn:start_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_sol_number" nillable="true" type="msn:stop_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_mean_solar_time_sol" type="msn:start_local_mean_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_mean_solar_time_sol" type="msn:stop_local_mean_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_true_solar_time_sol" type="msn:start_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_true_solar_time_sol" type="msn:stop_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -43,27 +83,69 @@
       </xs:documentation>
     </xs:annotation>
 
-  <xs:simpleType name="mission_phase_identifier">
+  <xs:complexType name="mission_phase_identifier">
     <xs:annotation>
       <xs:documentation>The mission_phase_identifier attribute provides
         an identifier for a mission phase.</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
-     <xs:minLength value="1"/>
-     <xs:maxLength value="255"/>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name identifies a time period
+        within the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Preserved">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="release_number">
+    <xs:annotation>
+      <xs:documentation>Release_number is the number of a scheduled
+        release of data from the provider to PDS. The first data release
+        is typically Release 1. The release_number for a given product
+        is always the first release in which it appears, and does not
+        change if the product is revised later.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spacecraft_clock_partition">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_partition provides the
+        clock partition active for the spacecraft_clock
+        attribute.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="mission_phase_name">
+  <xs:complexType name="spacecraft_clock_start">
     <xs:annotation>
-      <xs:documentation>The mission_phase_name attribute provides the
-        commonly recognized name for a mission phase.</xs:documentation>
+      <xs:documentation>The spacecraft_clock_start is the value of the
+        spacecraft clock at the beginning of the
+        observation.</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
-     <xs:minLength value="1"/>
-     <xs:maxLength value="255"/>
-	   </xs:restriction>
-  </xs:simpleType>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:simpleType name="spacecraft_clock_start_count">
     <xs:annotation>
@@ -77,6 +159,20 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="spacecraft_clock_stop">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_stop is the value of the
+        spacecraft clock at the end of the observation.
+        spacecraft_clock_stop should only be used if there's also a
+        spacecraft_clock_start value.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:simpleType name="spacecraft_clock_stop_count">
     <xs:annotation>
       <xs:documentation>The spacecraft_clock_stop_count attribute
@@ -86,6 +182,40 @@
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
      <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_local_mean_solar_time_sol">
+    <xs:annotation>
+      <xs:documentation>The start_local_mean_solar_time_sol element
+        specifies the number of solar days elapsed since a reference day
+        (e.g. the day on which a landing vehicle set down) for local
+        mean solar time (LMST). Days are measured in rotations of the
+        planet in question from midnight to midnight. The reference day
+        is '0', as Landing day is Sol 0. If before Landing day, then
+        value will be less than or equal to '0'and can be
+        negative.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_local_true_solar_time_sol">
+    <xs:annotation>
+      <xs:documentation>The start_local_true_solar_time_sol element
+        specifies the number of solar days elapsed since a reference day
+        (e.g. the day on which a landing vehicle set down) for local
+        true solar time (LTST). Days are measured in rotations of the
+        planet in question from midnight to midnight. The reference day
+        is '0', as Landing day is Sol 0. If before Landing day, then
+        value will be less than or equal to '0'and can be
+        negative.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -101,6 +231,55 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="start_sol_number">
+    <xs:annotation>
+      <xs:documentation>The start_sol_number is the number of the Mars
+        day on which an observation began. Landing day is Sol
+        0.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="stop_local_mean_solar_time_sol">
+    <xs:annotation>
+      <xs:documentation>The stop_local_mean_solar_time_sol element
+        specifies the number of solar days elapsed since a reference day
+        (e.g. the day on which a landing vehicle set down) for local
+        mean solar time (LMST). Days are measured in rotations of the
+        planet in question from midnight to midnight. The reference day
+        is '0', as Landing day is Sol 0. If before Landing day, then
+        value will be less than or equal to '0'and can be negative. The
+        stop_local_mean_solar_time_sol should only be used if there's
+        also a start_local_mean_solar_time_sol.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_local_true_solar_time_sol">
+    <xs:annotation>
+      <xs:documentation>The stop_local_true_solar_time_sol element
+        specifies the number of solar days elapsed since a reference day
+        (e.g. the day on which a landing vehicle set down) for local
+        true solar time (LTST). Days are measured in rotations of the
+        planet in question from midnight to midnight. The reference day
+        is '0', as Landing day is Sol 0. If before Landing day, then
+        value will be less than or equal to '0'and can be negative. The
+        stop_local_true_solar_time_sol should only be used if there is
+        also a start_local_true_solar_time_sol.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="stop_orbit_number">
     <xs:annotation>
       <xs:documentation>The stop_orbit_number attribute provides the
@@ -112,4 +291,35 @@
      <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="stop_sol_number">
+    <xs:annotation>
+      <xs:documentation>The stop_sol_number is the number of the Mars
+        day on which an observation ended. Landing day is Sol 0. The
+        stop_sol_number should only be used if there's also a
+        start_sol_number.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+ 
+  <xs:annotation>
+    <xs:documentation>
+[
+  {
+    "dataDictionary": {
+      "Title": "PDS4 Data Dictionary" ,
+      "Version": "1.9.0.0" ,
+      "Date": "Tue Jun 12 19:28:12 PDT 2018" ,
+      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "PropertyMapDictionary": [
+      ]
+    }
+  }
+]
+    </xs:documentation>
+  </xs:annotation>
 </xs:schema>
