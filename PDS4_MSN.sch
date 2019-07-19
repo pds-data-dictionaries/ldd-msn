@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:msn  Version:1.9.0.0 - Tue Jun 12 19:28:12 PDT 2018 -->
-  <!-- Generated from the PDS4 Information Model Version 1.9.0.0 - System Build 8a -->
+  <!-- PDS4 Schematron for Name Space Id:msn  Version:1.10.1.0 - Tue Jul 31 14:50:09 PDT 2018 -->
+  <!-- Generated from the PDS4 Information Model Version 1.10.1.0 - System Build 8b -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -21,6 +21,16 @@
     <sch:rule context="msn:Mission_Information/msn:mission_phase_name">
       <sch:assert test=". = ('ATLO', 'CRUISE', 'DEVELOPMENT', 'SURFACE MISSION', 'TEST')">
         The attribute msn:mission_phase_name must be equal to one of the following values 'ATLO', 'CRUISE', 'DEVELOPMENT', 'SURFACE MISSION', 'TEST'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="msn:Mission_Information/msn:product_type_name">
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="msn:Surface_Mission_Information/msn:solar_longitude">
+      <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad')">
+        The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad'.</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

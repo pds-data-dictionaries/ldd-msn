@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.9.0.0 - Tue Jun 12 19:28:12 PDT 2018 -->
-  <!-- Generated from the PDS4 Information Model Version 1.9.0.0 - System Build 8a -->
+  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.10.1.0 - Tue Jul 31 14:50:09 PDT 2018 -->
+  <!-- Generated from the PDS4 Information Model Version 1.10.1.0 - System Build 8b -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.9.0.0 - pds: - Common Dictionary - N/A                                  -->
-  <!-- 1.9.0.0 - msn: - Mission Commons - PDS4_MSN_IngestLDD_1900.xml            -->
+  <!-- 1.10.1.0 - pds: - Common Dictionary - N/A                                 -->
+  <!-- 1.10.1.0 - msn: - Mission Commons - PDS4_MSN_IngestLDD_1A10.xml           -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/msn/v1"
@@ -13,9 +13,9 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.9.0.0">
+    version="1.10.1.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1900.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1A10.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -24,8 +24,6 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
   </xs:annotation>
  
   <xs:element name="Mission_Information" type="msn:Mission_Information"> </xs:element>
-  <xs:element name="Observation_Conditions" type="msn:Observation_Conditions"> </xs:element>
-  <xs:element name="Surface_Observation_Conditions" type="msn:Surface_Observation_Conditions"> </xs:element>
 
   <xs:complexType name="Mission_Information">
     <xs:annotation>
@@ -36,42 +34,47 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
       <xs:element name="mission_phase_name" nillable="true" type="msn:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="mission_phase_identifier" nillable="true" type="msn:mission_phase_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="release_number" nillable="true" type="msn:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
-    </xs:sequence>
-    <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="msn:mission_phase_name = ('ATLO', 'CRUISE', 'DEVELOPMENT', 'SURFACE MISSION', 'TEST')"/> -->
-    <!-- End assert statements for schematron - Enumerated Values -->
-  </xs:complexType>
-
-  <xs:complexType name="Observation_Conditions">
-    <xs:annotation>
-      <xs:documentation>The Observation_Conditions class defines the
-        conditions under which the observation was acquired. Items in
-        this class apply to the entire observation. Items that apply to
-        the start or stop of an observation appear in
-        Observation_Start_Conditions or Observation_Stop_Conditions.
-        Note that some items may appear here while other items are
-        specific to start and stop.</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
+      <xs:element name="product_type_name" nillable="true" type="msn:product_type_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_start" nillable="true" type="msn:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_stop" nillable="true" type="msn:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_partition" type="msn:spacecraft_clock_partition" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="Surface_Observation_Conditions" type="msn:Surface_Observation_Conditions" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Orbital_Mission_Information" type="msn:Orbital_Mission_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Surface_Mission_Information" type="msn:Surface_Mission_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="msn:mission_phase_name = ('ATLO', 'CRUISE', 'DEVELOPMENT', 'SURFACE MISSION', 'TEST')"/> -->
+    <!-- <xs:assert test=")"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Orbital_Mission_Information">
+    <xs:annotation>
+      <xs:documentation>The Orbital_Mission_Information class provides
+        information about an orbital mission.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="start_orbit_number" nillable="true" type="msn:start_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_orbit_number" nillable="true" type="msn:stop_orbit_number" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Surface_Observation_Conditions">
+  <xs:complexType name="Surface_Mission_Information">
     <xs:annotation>
-      <xs:documentation>The Surface_Observation_Conditions class
-        </xs:documentation>
+      <xs:documentation>The Surface_Mission_Information class provides
+        information about a surface mission.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="start_sol_number" nillable="true" type="msn:start_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="stop_sol_number" nillable="true" type="msn:stop_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_mean_solar_time" type="msn:start_local_mean_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_mean_solar_time" type="msn:stop_local_mean_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="start_local_mean_solar_time_sol" type="msn:start_local_mean_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="stop_local_mean_solar_time_sol" type="msn:stop_local_mean_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_true_solar_time" type="msn:start_local_true_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_true_solar_time" type="msn:stop_local_true_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="start_local_true_solar_time_sol" type="msn:start_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="stop_local_true_solar_time_sol" type="msn:stop_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="solar_longitude" type="msn:solar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -79,7 +82,7 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
       <xs:documentation>This section contains the simpleTypes that provide more constraints
         than those at the base data type level. The simpleTypes defined here build on the base data
         types. This is another component of the common dictionary and therefore falls within the
-        pds namespace.
+        common namespace.
       </xs:documentation>
     </xs:annotation>
 
@@ -107,6 +110,20 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:complexType name="product_type_name">
+    <xs:annotation>
+      <xs:documentation>The product_type_name identifies a group of data
+        products within a collection that have some property in common,
+        such as processing level, resolution, or instrument-specific
+        setting. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:complexType name="release_number">
     <xs:annotation>
       <xs:documentation>Release_number is the number of a scheduled
@@ -118,6 +135,26 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
     <xs:simpleContent>
       <xs:extension base="pds:ASCII_Integer">
         <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="solar_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+    	<xs:pattern value='[-+]?[0-9]+(\.?[0-9]+)?([eE][-+]?[0-9]+)?'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="solar_longitude">
+    <xs:annotation>
+      <xs:documentation>solar_longitude is the solar longitude, as
+        defined in the main PDS4 data dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="msn:solar_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -185,6 +222,18 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="start_local_mean_solar_time">
+    <xs:annotation>
+      <xs:documentation>start_local_mean_solar_time is the local mean
+        solar time, as defined in the main PDS4 data
+        dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="8"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="start_local_mean_solar_time_sol">
     <xs:annotation>
       <xs:documentation>The start_local_mean_solar_time_sol element
@@ -199,6 +248,18 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
     <xs:restriction base="pds:ASCII_Integer">
      <xs:minInclusive value="-9223372036854775808"/>
      <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_local_true_solar_time">
+    <xs:annotation>
+      <xs:documentation>start_local_true_solar_time is the local true
+        solar time, as defined in the main PDS4 data
+        dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="8"/>
+     <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -244,6 +305,18 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:simpleType name="stop_local_mean_solar_time">
+    <xs:annotation>
+      <xs:documentation>stop_local_mean_solar_time is the local mean
+        solar time, as defined in the main PDS4 data
+        dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="8"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="stop_local_mean_solar_time_sol">
     <xs:annotation>
       <xs:documentation>The stop_local_mean_solar_time_sol element
@@ -259,6 +332,18 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
     <xs:restriction base="pds:ASCII_Integer">
      <xs:minInclusive value="-9223372036854775808"/>
      <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_local_true_solar_time">
+    <xs:annotation>
+      <xs:documentation>stop_local_true_solar_time is the local true
+        solar time, as defined in the main PDS4 data
+        dictionary.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="8"/>
+     <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -312,8 +397,8 @@ Definition taken from PDS3 dictionary; may need updating. -- EDR
   {
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
-      "Version": "1.9.0.0" ,
-      "Date": "Tue Jun 12 19:28:12 PDT 2018" ,
+      "Version": "1.10.1.0" ,
+      "Date": "Tue Jul 31 14:50:09 PDT 2018" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "PropertyMapDictionary": [
       ]
