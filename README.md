@@ -1,6 +1,6 @@
-# Generic Mission Local Data Dictionary (LDD)
+# Mission Information Local Data Dictionary (LDD)
 
-The generic Mission Dictionary contains classes, attributes, and rules for specifying metadata elements which are common among mission observations (as opposed to other types of observations).
+The Mission Information Dictionary contains classes, attributes, and rules for specifying generic metadata elements which are common among mission observations (as opposed to other types of observations).
 
 Steward: [IMG Node](https://pds-imaging.jpl.nasa.gov/)
 
