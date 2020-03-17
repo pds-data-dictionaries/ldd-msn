@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  true
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Mon Mar 16 13:00:53 MST 2020
+   Time                   Tue Mar 17 10:57:01 MST 2020
    Common Schema          [PDS4_PDS_1D00.xsd]
    Common Schematron      [PDS4_PDS_1D00.sch]
    IM Version Id:         1.13.0.0
@@ -87,6 +87,8 @@ Parsed Input - Header:
         might be when an image was commanded, but instrument clock might be
         after autoexposure or autofocus processes).
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
+      - Updated the definition for start_sol_number to allow a primary sol to be 
+        defined for mosaic products inplace of the actual starting sol value.
     
    Last Modification Time 2020-03-16T12:00:00
    PDS4 Merge Flag        false
@@ -172,7 +174,7 @@ Parsed Input - Attributes:
    name                   start_sol_number
    version                1.13
    value data type        ASCII_Integer
-   description            The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0.
+   description            The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0. For multi-sol observations, such as mosaics, if start_sol_number is given but stop_sol_number is not, the start_sol_number may instead be interpreted as the primary, or most important, sol for this observation.
    nillable               true
    minimum value          0
 

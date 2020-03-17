@@ -34,6 +34,8 @@
         might be when an image was commanded, but instrument clock might be
         after autoexposure or autofocus processes).
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
+      - Updated the definition for start_sol_number to allow a primary sol to be 
+        defined for mosaic products inplace of the actual starting sol value.
     </comment>
     <last_modification_date_time>2020-03-16T12:00:00</last_modification_date_time>
   
@@ -224,7 +226,9 @@
     <nillable_flag>true</nillable_flag>
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The start_sol_number is the number of the Mars day on which an observation began.
-      Landing day is Sol 0.</definition>
+      Landing day is Sol 0. For multi-sol observations, such as mosaics, if start_sol_number is 
+      given but stop_sol_number is not, the start_sol_number may instead be interpreted as the 
+      primary, or most important, sol for this observation.</definition>
     <comment>See comment for start_sol_number.</comment>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
