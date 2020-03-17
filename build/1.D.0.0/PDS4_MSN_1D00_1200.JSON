@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.13.0.0" ,
-      "Date": "Mon Mar 16 13:00:53 MST 2020" ,
+      "Date": "Tue Mar 17 10:57:01 MST 2020" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {
@@ -845,7 +845,7 @@
             "nameSpaceId": "msn" ,
             "steward": "img" ,
             "versionId": "1.13" ,
-            "description": "The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0." ,
+            "description": "The start_sol_number is the number of the Mars day on which an observation began. Landing day is Sol 0. For multi-sol observations, such as mosaics, if start_sol_number is given but stop_sol_number is not, the start_sol_number may instead be interpreted as the primary, or most important, sol for this observation." ,
             "isNillable": "true" ,
             "isEnumerated": "false" ,
             "isDeprecated": "false" ,
