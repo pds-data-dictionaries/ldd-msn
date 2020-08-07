@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  true
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Mar 17 10:57:01 MST 2020
+   Time                   Fri Aug 07 16:48:22 MST 2020
    Common Schema          [PDS4_PDS_1D00.xsd]
    Common Schematron      [PDS4_PDS_1D00.sch]
    IM Version Id:         1.13.0.0
@@ -63,7 +63,7 @@ Detailed validation messages
    INFO     Attribute: <solar_longitude> - This local attribute has a duplicate in the PDS4 data dictionary.
 
 Parsed Input - Header:
-   LDD Name               Mission Commons
+   LDD Name               Mission Information Commons
    LDD Version            1.2.0.0
    Full Name              Trent Hare
    Steward                img
@@ -80,17 +80,12 @@ Parsed Input - Header:
       
       1.2.0.0
       - Upgraded to v1D00 of the IM.
-      - Add instrument_clock_start. This is the value of the clock returned by
-        the instrument at the beginning of the observation. This may differ from
-        the spacecraft clock due to several factors such as clock drift, or
-        differences in definition of start time (for example, spacecraft clock
-        might be when an image was commanded, but instrument clock might be
-        after autoexposure or autofocus processes).
+      - Add instrument_clock_start and allow helicopter use case.
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
       - Updated the definition for start_sol_number to allow a primary sol to be 
         defined for mosaic products inplace of the actual starting sol value.
     
-   Last Modification Time 2020-03-16T12:00:00
+   Last Modification Time 2020-08-07T12:00:00
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -160,7 +155,7 @@ Parsed Input - Attributes:
    name                   instrument_clock_start
    version                1.13
    value data type        ASCII_Short_String_Collapsed
-   description            The value of the clock returned by the instrument at the beginning of the observation. This may differ from the spacecraft clock due to several factors such as clock drift, or differences in definition of start time (for example, spacecraft clock might be when an image was commanded, but instrument clock might be after autoexposure or autofocus processes). 
+   description            The value of the clock returned by the instrument at the beginning of the observation. This may differ from the spacecraft clock due to several factors such as clock drift, or differences in definition of start time (for example, spacecraft clock might be when an image was commanded, but instrument clock might be after autoexpoure or autofocus processes), or differences in the time epoch between the instrument and the main spacecraft. 
    nillable               true
    minimum characters     1
    maximum characters     255

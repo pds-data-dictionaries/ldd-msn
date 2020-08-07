@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.2.0.0 - Tue Mar 17 10:57:01 MST 2020 -->
+  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.2.0.0 - Fri Aug 07 16:48:22 MST 2020 -->
   <!-- Generated from the PDS4 Information Model Version 1.13.0.0 - System Build 10a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.13.0.0 - pds: - Common Dictionary - N/A                                 -->
-  <!-- 1.2.0.0 - msn: - Mission Commons - PDS4_MSN_IngestLDD.xml                 -->
+  <!-- 1.2.0.0 - msn: - Mission Information Commons - PDS4_MSN_IngestLDD.xml     -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/msn/v1"
@@ -31,12 +31,7 @@
       
       1.2.0.0
       - Upgraded to v1D00 of the IM.
-      - Add instrument_clock_start. This is the value of the clock returned by
-        the instrument at the beginning of the observation. This may differ from
-        the spacecraft clock due to several factors such as clock drift, or
-        differences in definition of start time (for example, spacecraft clock
-        might be when an image was commanded, but instrument clock might be
-        after autoexposure or autofocus processes).
+      - Add instrument_clock_start and allow helicopter use case.
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
       - Updated the definition for start_sol_number to allow a primary sol to be 
         defined for mosaic products inplace of the actual starting sol value.
@@ -115,8 +110,9 @@
         from the spacecraft clock due to several factors such as clock
         drift, or differences in definition of start time (for example,
         spacecraft clock might be when an image was commanded, but
-        instrument clock might be after autoexposure or autofocus
-        processes). </xs:documentation>
+        instrument clock might be after autoexpoure or autofocus
+        processes), or differences in the time epoch between the
+        instrument and the main spacecraft. </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="pds:ASCII_Short_String_Collapsed">
@@ -429,7 +425,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.13.0.0" ,
-      "Date": "Tue Mar 17 10:57:01 MST 2020" ,
+      "Date": "Fri Aug 07 16:48:22 MST 2020" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "PropertyMapDictionary": [
       ]
