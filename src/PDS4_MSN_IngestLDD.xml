@@ -10,7 +10,7 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
     https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1D00.xsd">
-    <name>Mission Commons</name>
+    <name>Mission Information Commons</name>
     <ldd_version_id>1.2.0.0</ldd_version_id>
     <full_name>Trent Hare</full_name>
     <steward_id>img</steward_id>
@@ -27,17 +27,12 @@
       
       1.2.0.0
       - Upgraded to v1D00 of the IM.
-      - Add instrument_clock_start. This is the value of the clock returned by
-        the instrument at the beginning of the observation. This may differ from
-        the spacecraft clock due to several factors such as clock drift, or
-        differences in definition of start time (for example, spacecraft clock
-        might be when an image was commanded, but instrument clock might be
-        after autoexposure or autofocus processes).
+      - Add instrument_clock_start and allow helicopter use case.
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
       - Updated the definition for start_sol_number to allow a primary sol to be 
         defined for mosaic products inplace of the actual starting sol value.
     </comment>
-    <last_modification_date_time>2020-03-16T12:00:00</last_modification_date_time>
+    <last_modification_date_time>2020-08-07T12:00:00</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -190,12 +185,12 @@
     <local_identifier>instrument_clock_start</local_identifier>
     <nillable_flag>true</nillable_flag>
     <submitter_name>Trent Hare</submitter_name>
-    <definition>The value of the clock returned by the
-      instrument at the beginning of the observation. This may differ from
-      the spacecraft clock due to several factors such as clock drift, or
-      differences in definition of start time (for example, spacecraft clock
-      might be when an image was commanded, but instrument clock might be
-      after autoexposure or autofocus processes).
+    <definition>The value of the clock returned by the instrument at the beginning of 
+      the observation. This may differ from the spacecraft clock due to several factors 
+      such as clock drift, or differences in definition of start time (for example, 
+      spacecraft clock might be when an image was commanded, but instrument clock might 
+      be after autoexpoure or autofocus processes), or differences in the time epoch 
+      between the instrument and the main spacecraft.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
