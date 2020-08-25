@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.2.0.0 - Tue Aug 18 15:47:00 UTC 2020 -->
+  <!-- PDS4 XML/Schema for Name Space Id:msn  Version:1.3.0.0 - Tue Aug 25 18:09:24 UTC 2020 -->
   <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
-  <!-- 1.2.0.0 - msn: - Mission Information Commons                              -->
+  <!-- 1.3.0.0 - msn: - Mission Information Commons                              -->
   <!--   file:/home/runner/work/ldd-msn/ldd-msn/src/PDS4_MSN_IngestLDD.xml       -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -14,7 +14,7 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.2.0.0">
+    version="1.3.0.0">
  
     <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
  
@@ -36,6 +36,12 @@
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
       - Updated the definition for start_sol_number to allow a primary sol to be 
         defined for mosaic products inplace of the actual starting sol value.
+       
+      1.3.0.0
+      - Upgraded to v1E00 of the IM
+      - Add year_number, year_number_reference attributes to Surface_Mission
+      - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
+
     
     </xs:documentation>
   </xs:annotation>
@@ -59,10 +65,22 @@
       <xs:element name="instrument_start_time" nillable="true" type="msn:instrument_start_time" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="Orbital_Mission" type="msn:Orbital_Mission" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="Surface_Mission" type="msn:Surface_Mission" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Observation_Context" type="msn:Observation_Context" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test=")"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Context">
+    <xs:annotation>
+      <xs:documentation>Describes the vehicle context at the time the
+        observation was taken.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="active_flight_computer" nillable="true" type="msn:active_flight_computer" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="active_flight_imu" nillable="true" type="msn:active_flight_imu" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Orbital_Mission">
@@ -93,6 +111,8 @@
       <xs:element name="start_local_true_solar_time_sol" type="msn:start_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="stop_local_true_solar_time_sol" type="msn:stop_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="solar_longitude" type="msn:solar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="year_number" type="msn:year_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="year_number_reference" type="msn:year_number_reference" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -103,6 +123,31 @@
         common namespace.
       </xs:documentation>
     </xs:annotation>
+
+  <xs:complexType name="active_flight_computer">
+    <xs:annotation>
+      <xs:documentation>Identifies which of potentially several flight
+        computers were used for this observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="active_flight_imu">
+    <xs:annotation>
+      <xs:documentation>Identifies which of potentially several inertial
+        measurement units (IMUs) were used for this
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:complexType name="instrument_clock_start">
     <xs:annotation>
@@ -418,21 +463,32 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
- 
-  <xs:annotation>
-    <xs:documentation>
-[
-  {
-    "dataDictionary": {
-      "Title": "PDS4 Data Dictionary" ,
-      "Version": "1.14.0.0" ,
-      "Date": "Tue Aug 18 15:47:00 UTC 2020" ,
-      "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
-      "PropertyMapDictionary": [
-      ]
-    }
-  }
-]
-    </xs:documentation>
-  </xs:annotation>
+
+  <xs:simpleType name="year_number">
+    <xs:annotation>
+      <xs:documentation>Identifies the year of the observation, using
+        the definition for year specified in
+        year_number_reference.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="year_number_reference">
+    <xs:annotation>
+      <xs:documentation>Identifies the system used to measure
+        year_number. Current values include: Mars Year: Mars year as
+        defined by Piqueaux et al (2015), extending Clancy et al (2000).
+        Mars Year 1 started on April 11, 1955 at Ls (areocentric solar
+        longitude) = 0, with subsequent years starting at Ls=0.
+        Reference:
+        https://doi.org/10.1016/j.icarus.2014.12.014</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

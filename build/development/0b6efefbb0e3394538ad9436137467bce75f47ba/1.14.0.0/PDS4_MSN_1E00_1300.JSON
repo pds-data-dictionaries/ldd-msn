@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.14.0.0" ,
-      "Date": "Tue Aug 18 15:47:00 UTC 2020" ,
+      "Date": "Tue Aug 25 18:09:24 UTC 2020" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {
@@ -191,6 +191,69 @@
                 "classOrder": "1110" ,
                 "classId": [
                   "0001_NASA_PDS_1.msn.Surface_Mission"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msn.Mission_Information.msn.Observation_Context" ,
+                "title": "Observation_Context" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1120" ,
+                "classId": [
+                  "0001_NASA_PDS_1.msn.Observation_Context"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.msn.Observation_Context" ,
+            "title": "Observation_Context" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msn" ,
+            "steward": "img" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Describes the vehicle context at the time the observation was taken."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.msn.Observation_Context.msn.active_flight_computer" ,
+                "title": "active_flight_computer" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msn.Observation_Context.msn.active_flight_computer"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msn.Observation_Context.msn.active_flight_imu" ,
+                "title": "active_flight_imu" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msn.Observation_Context.msn.active_flight_imu"
                  ]
               }
             }
@@ -432,6 +495,38 @@
                  ]
               }
             }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msn.Surface_Mission.msn.year_number" ,
+                "title": "year_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1120" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msn.Surface_Mission.msn.year_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.msn.Surface_Mission.msn.year_number_reference" ,
+                "title": "year_number_reference" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1130" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.msn.Surface_Mission.msn.year_number_reference"
+                 ]
+              }
+            }
            ]
           }
         }
@@ -646,6 +741,56 @@
             "steward": "img" ,
             "versionId": "1.14" ,
             "description": "The spacecraft_clock_stop is the value of the spacecraft clock at the end of the observation. spacecraft_clock_stop should only be used if there's also a spacecraft_clock_start value." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msn.Observation_Context.msn.active_flight_computer" ,
+            "title": "active_flight_computer" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msn" ,
+            "steward": "img" ,
+            "versionId": "1.14" ,
+            "description": "Identifies which of potentially several flight computers were used for this observation." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msn.Observation_Context.msn.active_flight_imu" ,
+            "title": "active_flight_imu" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msn" ,
+            "steward": "img" ,
+            "versionId": "1.14" ,
+            "description": "Identifies which of potentially several inertial measurement units (IMUs) were used for this observation." ,
             "isNillable": "true" ,
             "isEnumerated": "false" ,
             "isDeprecated": "false" ,
@@ -980,6 +1125,56 @@
             "maximumCharacters": "Unbounded" ,
             "minimumValue": "0" ,
             "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msn.Surface_Mission.msn.year_number" ,
+            "title": "year_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msn" ,
+            "steward": "img" ,
+            "versionId": "1.14" ,
+            "description": "Identifies the year of the observation, using the definition for year specified in year_number_reference." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.msn.Surface_Mission.msn.year_number_reference" ,
+            "title": "year_number_reference" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "msn" ,
+            "steward": "img" ,
+            "versionId": "1.14" ,
+            "description": "Identifies the system used to measure year_number. Current values include: Mars Year: Mars year as defined by Piqueaux et al (2015), extending Clancy et al (2000). Mars Year 1 started on April 11, 1955 at Ls (areocentric solar longitude) = 0, with subsequent years starting at Ls=0. Reference: https:\/\/doi.org\/10.1016\/j.icarus.2014.12.014" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
             "pattern": "null" ,
             "unitOfMeasure": "null" ,
             "unitOfMeasureId": "null" ,
