@@ -2,12 +2,12 @@ PDS4 Local Data Dictionary Processing Report
 
 Configuration:
    LDDTool Version        11.3.2
-   LDD Version Id:        1.2.0.0
+   LDD Version Id:        1.3.0.0
    LDD Label Version Id:  1.0
    LDD Discipline (T/F):  true
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Aug 18 15:47:00 UTC 2020
+   Time                   Tue Aug 25 18:09:24 UTC 2020
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -29,12 +29,12 @@ Parameters:
    Merge with Master      false
 
 Summary:
-   Classes                3
-   Attributes             22
-   Associations           24
+   Classes                4
+   Attributes             26
+   Associations           29
    Error messages         0
    Warning messages       0
-   Information messages   36
+   Information messages   44
 
 Detailed validation messages
    INFO     Attribute: <mission_phase_name> - A 'nilable' attribute was found that is not a required attribute in at least one class.
@@ -49,6 +49,8 @@ Detailed validation messages
    INFO     Attribute: <instrument_start_time> - A 'nilable' attribute was found that is not a required attribute in at least one class.
    INFO     Attribute: <start_sol_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
    INFO     Attribute: <stop_sol_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+   INFO     Attribute: <active_flight_computer> - A 'nilable' attribute was found that is not a required attribute in at least one class.
+   INFO     Attribute: <active_flight_imu> - A 'nilable' attribute was found that is not a required attribute in at least one class.
    INFO     Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
    INFO     Attribute: <start_orbit_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
    INFO     Attribute: <start_orbit_number> - The default maximum characters provided by the attribute's data type is being overridden with 255
@@ -73,10 +75,16 @@ Detailed validation messages
    INFO     Attribute: <solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
    INFO     Attribute: <solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
    INFO     Attribute: <solar_longitude> - This local attribute has a duplicate in the PDS4 data dictionary.
+   INFO     Attribute: <year_number_reference> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <year_number_reference> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <active_flight_computer> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <active_flight_computer> - The default maximum characters provided by the attribute's data type is being overridden with 255
+   INFO     Attribute: <active_flight_imu> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <active_flight_imu> - The default maximum characters provided by the attribute's data type is being overridden with 255
 
 Parsed Input - Header:
    LDD Name               Mission Information Commons
-   LDD Version            1.2.0.0
+   LDD Version            1.3.0.0
    Full Name              Trent Hare
    Steward                img
    Namespace Id           msn
@@ -96,8 +104,14 @@ Parsed Input - Header:
       - Add instrument_start_time. This is instrument_clock_start converted to UTC.
       - Updated the definition for start_sol_number to allow a primary sol to be 
         defined for mosaic products inplace of the actual starting sol value.
+       
+      1.3.0.0
+      - Upgraded to v1E00 of the IM
+      - Add year_number, year_number_reference attributes to Surface_Mission
+      - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
+
     
-   Last Modification Time 2020-08-07T12:00:00
+   Last Modification Time 2020-08-19T12:00:00
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -248,6 +262,34 @@ Parsed Input - Attributes:
    value data type        ASCII_Integer
    description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0'and can be negative. The stop_local_true_solar_time_sol should only be used if there is also a start_local_true_solar_time_sol.
 
+   name                   year_number
+   version                1.14
+   value data type        ASCII_Integer
+   description            Identifies the year of the observation, using the definition for year specified in year_number_reference.
+
+   name                   year_number_reference
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies the system used to measure year_number. Current values include: Mars Year: Mars year as defined by Piqueaux et al (2015), extending Clancy et al (2000). Mars Year 1 started on April 11, 1955 at Ls (areocentric solar longitude) = 0, with subsequent years starting at Ls=0. Reference: https://doi.org/10.1016/j.icarus.2014.12.014
+   minimum characters     1
+   maximum characters     255
+
+   name                   active_flight_computer
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies which of potentially several flight computers were used for this observation.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
+   name                   active_flight_imu
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Identifies which of potentially several inertial measurement units (IMUs) were used for this observation.
+   nillable               true
+   minimum characters     1
+   maximum characters     255
+
 Parsed Input - Classes:
 
    name                   Mission_Information
@@ -309,6 +351,11 @@ Parsed Input - Classes:
       reference type        component_of
 
       local identifier      Surface_Mission
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      Observation_Context
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
@@ -390,6 +437,34 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      solar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      year_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      year_number_reference
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Observation_Context
+   description            Describes the vehicle context at the time the observation was taken.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      active_flight_computer
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      active_flight_imu
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
