@@ -1,7 +1,6 @@
 # This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java#apache-maven-with-a-settings-path
 
-
 ---
 
 name: LDD Automation with PDSEN CI Bot
@@ -49,6 +48,9 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.7'
+
+      - name: Checkout submodules for dependencies
+        uses: textbook/git-checkout-submodule-action@master
 
       - name: Generate LDDs
         id: generate
