@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  true
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Aug 25 18:09:24 UTC 2020
+   Time                   Thu Aug 27 19:24:46 UTC 2020
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -111,7 +111,7 @@ Parsed Input - Header:
       - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
 
     
-   Last Modification Time 2020-08-19T12:00:00
+   Last Modification Time 2020-08-19T13:00:00
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
