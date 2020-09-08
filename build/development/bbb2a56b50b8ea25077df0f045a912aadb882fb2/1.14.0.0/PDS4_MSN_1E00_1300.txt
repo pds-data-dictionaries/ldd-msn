@@ -1,13 +1,13 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        11.3.2
+   LDDTool Version        0.0.0
    LDD Version Id:        1.3.0.0
    LDD Label Version Id:  1.0
    LDD Discipline (T/F):  true
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Thu Aug 27 19:24:46 UTC 2020
+   Time                   Tue Sep 08 20:47:24 UTC 2020
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -34,53 +34,9 @@ Summary:
    Associations           29
    Error messages         0
    Warning messages       0
-   Information messages   44
+   Information messages   0
 
 Detailed validation messages
-   INFO     Attribute: <mission_phase_name> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <mission_phase_identifier> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <release_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <product_type_name> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <start_orbit_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <stop_orbit_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <spacecraft_clock_start> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <spacecraft_clock_stop> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <instrument_clock_start> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <instrument_start_time> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <start_sol_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <stop_sol_number> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <active_flight_computer> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <active_flight_imu> - A 'nilable' attribute was found that is not a required attribute in at least one class.
-   INFO     Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <start_orbit_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <start_orbit_number> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <stop_orbit_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <stop_orbit_number> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <spacecraft_clock_stop> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <instrument_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <instrument_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <start_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <stop_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <start_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
-   INFO     Attribute: <start_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <stop_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
-   INFO     Attribute: <stop_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <start_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
-   INFO     Attribute: <start_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <stop_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
-   INFO     Attribute: <stop_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
-   INFO     Attribute: <solar_longitude> - This local attribute has a duplicate in the PDS4 data dictionary.
-   INFO     Attribute: <year_number_reference> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <year_number_reference> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <active_flight_computer> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <active_flight_computer> - The default maximum characters provided by the attribute's data type is being overridden with 255
-   INFO     Attribute: <active_flight_imu> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <active_flight_imu> - The default maximum characters provided by the attribute's data type is being overridden with 255
 
 Parsed Input - Header:
    LDD Name               Mission Information Commons
