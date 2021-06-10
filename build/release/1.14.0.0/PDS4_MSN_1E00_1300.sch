@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:msn  Version:1.3.0.0 - Wed Oct 14 02:55:18 UTC 2020 -->
+  <!-- PDS4 Schematron for Name Space Id:msn  Version:1.3.0.0 - Tue May 04 05:12:35 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -25,6 +25,7 @@
   <sch:pattern>
     <sch:rule context="msn:Surface_Mission/msn:solar_longitude">
       <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad')">
+        <title>msn:Surface_Mission/msn:solar_longitude/msn:solar_longitude</title>
         The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'mrad', 'rad'.</sch:assert>
     </sch:rule>
   </sch:pattern>
