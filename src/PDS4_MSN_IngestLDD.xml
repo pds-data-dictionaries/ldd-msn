@@ -11,7 +11,7 @@
     xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
     https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
     <name>Mission Information Commons</name>
-    <ldd_version_id>1.3.0.0</ldd_version_id>
+    <ldd_version_id>1.3.0.1</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
     <full_name>Trent Hare</full_name>
     <steward_id>img</steward_id>
@@ -38,8 +38,11 @@
       - Add year_number, year_number_reference attributes to Surface_Mission
       - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
 
+      1.3.0.1
+      -add instrument_clock_stop and instrument_stop_time 
+
     </comment>
-    <last_modification_date_time>2020-08-19T13:00:00</last_modification_date_time>
+    <last_modification_date_time>2020-11-01T08:30:00</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -208,12 +211,45 @@
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>
+    <name>instrument_clock_stop</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_clock_stop</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>The value of the clock returned by the instrument at the end of 
+      the observation. This may differ from the spacecraft clock due to several factors 
+      such as clock drift, or differences in definition of stop time, or differences 
+      in the time epoch between the instrument and the main spacecraft.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <formation_rule>Value should be of the form: nnnnnnnnn.mmm</formation_rule>
+      <minimum_characters>1</minimum_characters>
+      <maximum_characters>255</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
     <name>instrument_start_time</name>
     <version_id>1.0</version_id>
     <local_identifier>instrument_start_time</local_identifier>
     <nillable_flag>true</nillable_flag>
     <submitter_name>Trent Hare</submitter_name>
     <definition>This is instrument_clock_start converted to UTC</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>instrument_stop_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_stop_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>This is instrument_clock_stop converted to UTC</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
@@ -543,7 +579,19 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
+      <identifier_reference>instrument_clock_stop</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>instrument_start_time</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>instrument_stop_time</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
