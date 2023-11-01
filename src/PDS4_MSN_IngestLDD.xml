@@ -10,6 +10,7 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xsi:schemaLocation="https://pds.nasa.gov/pds4/pds/v1 
     https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd">
+  
     <name>Mission Information Commons</name>
     <ldd_version_id>1.3.0.1</ldd_version_id>
     <dictionary_type>Discipline</dictionary_type>
@@ -39,7 +40,8 @@
       - Added Observation_Context class and attrbitues active_flight_computer, active_flight_imu under Mission_Information
 
       1.3.0.1
-      -add instrument_clock_stop and instrument_stop_time 
+      -add instrument_clock_stop and instrument_stop_time
+      - mission_phase_name and mission_phase_identifier to unbounded (multi)
 
     </comment>
     <last_modification_date_time>2020-11-01T08:30:00</last_modification_date_time>
@@ -534,13 +536,13 @@
       <identifier_reference>mission_phase_name</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mission_phase_identifier</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>release_number</identifier_reference>
