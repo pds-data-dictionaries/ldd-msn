@@ -198,6 +198,36 @@
       <maximum_characters>255</maximum_characters>
     </DD_Value_Domain>
   </DD_Attribute>
+ 
+  <DD_Attribute>
+    <name>instrument_start_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_start_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>This is instrument_clock_start converted to UTC</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>
+    <name>instrument_stop_time</name>
+    <version_id>1.0</version_id>
+    <local_identifier>instrument_stop_time</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Trent Hare</submitter_name>
+    <definition>This is instrument_clock_stop converted to UTC</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+      <formation_rule>yyyy-mm-ddThh:mm:ss.sssZ</formation_rule>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
   <DD_Attribute>
     <name>ephemeris_start_time</name>
     <version_id>1.0</version_id>
@@ -228,7 +258,7 @@
       <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
-  
+
 
   <!-- End attribute definitions for the Mission_Information class -->
   
