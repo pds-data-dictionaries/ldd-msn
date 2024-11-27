@@ -1,0 +1,89 @@
+
+>>  INFO LDDTOOL Version: 15.2.2
+>>  INFO IM Version Id: 1.19.0.0
+>>  INFO IM Namespace Id: pds
+>>  INFO IM Label Version Id: 1.25
+>>  INFO Date: Mon Nov 18 19:18:02 UTC 2024
+>>  INFO PARENT_DIR: /tmp/lddtool-15.2.2/Data/
+
+>>> INFO Init:  - Config.Properties Namespace Id Found:msn
+>>> INFO Init:  - Config.Properties Namespace Id Using:msn
+>>> INFO Init:  - LDD Dictionary_Type is Discipline
+>>> INFO Attribute: <mission_phase_name> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <mission_phase_identifier> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <release_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <product_type_name> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_start> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <spacecraft_clock_stop> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <instrument_clock_start> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <instrument_clock_stop> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <instrument_start_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <instrument_stop_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <ephemeris_start_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <ephemeris_stop_time> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <start_orbit_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <stop_orbit_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <orbit_identifier> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <start_sol_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <stop_sol_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <active_flight_computer> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <active_flight_imu> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <spacecraft_clock_stop> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <instrument_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <instrument_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <instrument_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <instrument_clock_stop> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <start_orbit_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <start_orbit_number> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <stop_orbit_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <stop_orbit_number> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <orbit_identifier> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <orbit_identifier> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <start_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <stop_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <start_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
+>>> INFO Attribute: <start_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <stop_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
+>>> INFO Attribute: <stop_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <start_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
+>>> INFO Attribute: <start_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <stop_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
+>>> INFO Attribute: <stop_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
+>>> INFO Attribute: <solar_longitude> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <year_number_reference> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <year_number_reference> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <active_flight_computer> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <active_flight_computer> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> INFO Attribute: <active_flight_imu> - The default minimum characters provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <active_flight_imu> - The default maximum characters provided by the attribute's data type is being overridden with 255
+>>> WARNING Attribute: <product_type_name> - An attribute with the enumeration_flag = true must have at least one permissible value.
+
+ -- LDDTool Execution Summary --
+     1 warning(s)
+     0 error(s)
+     0 fatal error(s)
+
+Input:
+
+     - IM Version: 1J00
+     - PDS4 Flag: true
+     - LDD Flag: true
+     - IM Version: true
+     - Export JSON Flag: true
+
+     - Ingest LDD(s): /home/runner/work/ldd-msn/ldd-msn/src/PDS4_MSN_IngestLDD.xml
+
+Output:
+
+     - ./PDS4_MSN_1J00_1310.xsd
+     - ./PDS4_MSN_1J00_1310.sch
+     - ./PDS4_MSN_1J00_1310.xml
+     - ./export/PDS4_PDS_1J00.JSON
+
+>>  INFO Exit(0)
