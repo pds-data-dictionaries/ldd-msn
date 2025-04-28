@@ -1,10 +1,10 @@
 
->>  INFO LDDTOOL Version: 15.2.2
->>  INFO IM Version Id: 1.21.0.0
+>>  INFO LDDTOOL Version: 15.2.4
+>>  INFO IM Version Id: 1.23.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.27
->>  INFO Date: Mon Nov 18 19:18:27 UTC 2024
->>  INFO PARENT_DIR: /tmp/lddtool-15.2.2/Data/
+>>  INFO IM Label Version Id: 1.0
+>>  INFO Date: Mon Apr 28 18:38:26 UTC 2025
+>>  INFO PARENT_DIR: /tmp/lddtool-15.2.4/Data/
 
 >>> INFO Init:  - Config.Properties Namespace Id Found:msn
 >>> INFO Init:  - Config.Properties Namespace Id Using:msn
@@ -28,7 +28,11 @@
 >>> INFO Attribute: <stop_sol_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <active_flight_computer> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <active_flight_imu> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <mission_phase_name> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <mission_phase_identifier> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <release_number> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <product_type_name> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
@@ -71,19 +75,18 @@
 
 Input:
 
-     - IM Version: 1L00
+     - IM Version: 1N00
      - PDS4 Flag: true
      - LDD Flag: true
-     - IM Version: true
      - Export JSON Flag: true
 
      - Ingest LDD(s): /home/runner/work/ldd-msn/ldd-msn/src/PDS4_MSN_IngestLDD.xml
 
 Output:
 
-     - ./PDS4_MSN_1L00_1310.xsd
-     - ./PDS4_MSN_1L00_1310.sch
-     - ./PDS4_MSN_1L00_1310.xml
-     - ./export/PDS4_PDS_1L00.JSON
+     - ./PDS4_MSN_1N00_1310.xsd
+     - ./PDS4_MSN_1N00_1310.sch
+     - ./PDS4_MSN_1N00_1310.xml
+     - ./export/PDS4_PDS_1N00.JSON
 
 >>  INFO Exit(0)
