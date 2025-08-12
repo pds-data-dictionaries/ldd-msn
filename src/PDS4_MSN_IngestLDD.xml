@@ -52,10 +52,10 @@
      - add orbit_identifier to Orbital_Mission class.
      
      1.3.2.0
-     - Add Observation class
+     - Add Observation_Description class
 
     </comment>
-    <last_modification_date_time>2025-07-09T00:00:00Z</last_modification_date_time>
+    <last_modification_date_time>2025-08-12T00:00:00Z</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -578,7 +578,7 @@
   
   <!-- End attribute definitions for Observation_Context class -->
   
-  <!-- Start attribute definitions for Observation class -->
+  <!-- Start attribute definitions for Observation_Description class -->
   
   <DD_Attribute>
     <name>observation_id</name>
@@ -633,7 +633,7 @@
     </DD_Value_Domain>
   </DD_Attribute>
   
-  <!-- End attribute definitions for Observation class -->
+  <!-- End attribute definitions for Observation_Description class -->
 
   <!-- End attribute definitions --> 
 
@@ -748,7 +748,7 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
-      <identifier_reference>Observation</identifier_reference>
+      <identifier_reference>Observation_Description</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>*</maximum_occurrences>
@@ -895,15 +895,16 @@
   </DD_Class>
 
   <DD_Class>
-    <name>Observation</name>
+    <name>Observation_Description</name>
     <version_id>1.0</version_id>
-    <local_identifier>Observation</local_identifier>
+    <local_identifier>Observation_Description</local_identifier>
     <submitter_name>R. Deen</submitter_name>
     <definition>
       Describes the observation, which may consist of a set of related
-      products (for example, different spectral filters on the same target).
-      Products that are part of the same observation should have the same
-      observation_id. Note that a product can be part of multiple Observations.
+      products (for example, different spectral filters on the same target,
+      or different frames of a movie or mosaic).  Products that are part of
+      the same observation should have the same observation_id.  Note that
+      a product can be part of multiple Observation_Descriptions.
     </definition>
     <abstract_flag>false</abstract_flag>
     <DD_Association>
