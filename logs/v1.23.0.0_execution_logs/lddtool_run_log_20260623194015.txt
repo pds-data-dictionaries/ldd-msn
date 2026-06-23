@@ -1,9 +1,9 @@
 
 >>  INFO LDDTOOL Version: 16.1.3
->>  INFO IM Version Id: 1.18.0.0
+>>  INFO IM Version Id: 1.23.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.24
->>  INFO Date: Sun Jun 21 00:11:56 UTC 2026
+>>  INFO IM Label Version Id: 1.0
+>>  INFO Date: Tue Jun 23 19:40:18 UTC 2026
 >>  INFO PARENT_DIR: /tmp/lddtool-16.1.3/Data/
 
 >>> ERROR Class:0001_NASA_PDS_1.msn.Mission_Information  Association:msn:flight_day_number  Class:msn:flight_day_number - Missing Component Class
@@ -31,7 +31,11 @@
 >>> INFO Attribute: <stop_sol_number> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <active_flight_computer> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <active_flight_imu> - A 'nillable' attribute was found that is not a required attribute in at least one class.
+>>> INFO Attribute: <mission_phase_name> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <mission_phase_identifier> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <release_number> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <release_number> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <product_type_name> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 255
 >>> INFO Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
@@ -76,7 +80,7 @@
 
 Input:
 
-     - IM Version: 1I00
+     - IM Version: 1N00
      - PDS4 Flag: true
      - LDD Flag: true
      - IM Version: true
@@ -86,9 +90,9 @@ Input:
 
 Output:
 
-     - ./PDS4_MSN_1I00_1330.xsd
-     - ./PDS4_MSN_1I00_1330.sch
-     - ./PDS4_MSN_1I00_1330.xml
-     - ./export/PDS4_PDS_1I00.JSON
+     - ./PDS4_MSN_1N00_1330.xsd
+     - ./PDS4_MSN_1N00_1330.sch
+     - ./PDS4_MSN_1N00_1330.xml
+     - ./export/PDS4_PDS_1N00.JSON
 
 >>  INFO Exit(1)
