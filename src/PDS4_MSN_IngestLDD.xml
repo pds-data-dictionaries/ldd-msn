@@ -746,6 +746,12 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
+      <identifier_reference>flight_day_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
       <identifier_reference>Orbital_Mission</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
@@ -769,12 +775,7 @@
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>*</maximum_occurrences>
     </DD_Association>
-    <DD_Association>
-      <identifier_reference>flight_day_number</identifier_reference>
-      <reference_type>component_of</reference_type>
-      <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
-    </DD_Association>
+
   </DD_Class>
   <!--  End of Mission_Information Class Definition -->
   
