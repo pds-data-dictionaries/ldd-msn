@@ -55,10 +55,10 @@
      - Add Observation_Description class
 
      1.3.3.0
-      - Add flight_day_number
+      - Add flight_day_number and internal_id
 
     </comment>
-    <last_modification_date_time>2026-06-20T00:00:00Z</last_modification_date_time>
+    <last_modification_date_time>2026-06-30T23:00:00Z</last_modification_date_time>
   
   <!-- Begin attribute definitions -->
   
@@ -236,7 +236,19 @@
       <unit_of_measure_type>Units_of_None</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
-  
+  <DD_Attribute>
+    <name>internal_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>internal_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Bob Deen</submitter_name>
+    <definition>Indentifier for this data used internally to the data provider team.  Intended to help connect the data to mission documentation.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <unit_of_measure_type>Units_of_None</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>
     <name>ephemeris_start_time</name>
     <version_id>1.0</version_id>
@@ -747,6 +759,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>flight_day_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>internal_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
